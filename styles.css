@@ -19,9 +19,9 @@
 
 body {
   height: 100vh;
-  /* si cambio esto a column se me rompe el layout ?  */
-  /* flex-direction: column; */
+  flex-direction: column;
   display: flex;
+  gap: 40px;
   justify-content: center;
   align-items: center;
   font-family: "Space mono", sans-serif;
@@ -31,8 +31,6 @@ body {
 /* -------------------------MAIN------------------------  */
 
 .logo {
-  position: absolute;
-  top: 15%;
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
@@ -47,8 +45,9 @@ body {
 
 .calculator {
   display: flex;
-  width: 1000px;
-  height: 450px;
+  width: 100%;
+  max-width: 1000px;
+  height: 400px;
   padding: 40px;
   gap: 60px;
   margin: 0 20px;
@@ -104,6 +103,7 @@ body {
   border-radius: 3px;
   padding: 6px 0;
   font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .custom__input,
@@ -162,6 +162,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
 /* ----------------HELPERS------------------- */
@@ -184,7 +185,8 @@ body {
 @media (max-width: 850px) {
 
   body {
-    align-items: end;
+    align-items: center;
+    gap: 7px;
   }
 
   .logo {
