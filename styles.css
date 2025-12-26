@@ -1,5 +1,16 @@
-/* RESET */
+/* VARIABLES */
+:root {
+  --Green900: hsl(183, 100%, 15%);
+  --Grey500: hsl(186, 14%, 43%);
+  --Grey400: hsl(184, 14%, 56%);
+  --Grey200: hsl(185, 41%, 84%);
+  --Grey50: hsl(189, 47%, 97%);
+  --White: hsl(0, 100%, 100%);
 
+  --Green400: hsl(172, 67%, 45%);
+}
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -8,21 +19,193 @@
 
 body {
   height: 100vh;
+  /* si cambio esto a column se me rompe el layout ?  */
+  /* flex-direction: column; */
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Space mono", sans-serif;
+  background-color: var(--Grey200);
 }
 
+/* -------------------------MAIN------------------------  */
 
+.logo {
+  position: absolute;
+  top: 15%;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--Green900);
+  letter-spacing: 7px;
+}
 
+.logo span {
+  display: block;
+}
 
+.calculator {
+  display: flex;
+  width: 1000px;
+  height: 450px;
+  padding: 40px;
+  gap: 60px;
+  margin: 0 20px;
+  background-color: var(--White);
+  border-radius: 15px;
 
+}
 
+.left-side {
+  flex: 0 1 55%;
+}
 
+.right-side {
+  flex: 0 1 45%;
+  background-color: var(--Green900);
+  border-radius: 15px;
+}
 
-/* HELPERS  */
+/* --------------------LEFT SIDE---------------------- */
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bill__text,
+.select-tip__text,
+.num-of-people__text {
+  color: var(--Grey500);
+  font-weight: 700;
+}
+
+.select-tip__text {
+  margin-bottom: 10px;
+}
+
+/* ---buttons---  */
+
+.select-tip__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tip__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Green900);
+  color: var(--White);
+  border-radius: 3px;
+  padding: 6px 0;
+  font-size: 1.3rem;
+}
+
+.custom__input,
+.custom__btn {
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: var(--Grey400);
+  font-weight: 700;
+}
+
+.custom__btn {
+  border: none;
+}
+
+/* -------------------RIGHT SIDE ------------------- */
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 40px;
+}
+
+.amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount__heading,
+.total__heading {
+  color: var(--White);
+  font-size: 1rem;
+}
+.amount__text,
+.total__text {
+  margin-top: -4px;
+  font-size: 0.8rem;
+  color: var(--Grey400);
+}
+.amount__num,
+.total__num {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: var(--Green400);
+}
+
+.reset-btn {
+  margin: auto auto 0 auto;
+  padding: 15px 0;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* ----------------HELPERS------------------- */
+
 .hidden {
   display: none;
 }
+.display {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--Grey50);
+  border: none;
+}
 
+/* ----------------MEDIA QUERIES----------------- */
 
+@media (max-width: 850px) {
+
+  body {
+    align-items: end;
+  }
+
+  .logo {
+    top: 10%;
+  }
+
+  .calculator {
+    flex-direction: column;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .left-side {
+    gap: 30px;
+  }
+
+  .select-tip__buttons {
+    grid-template-columns: repeat(2, minmax(80px, 1fr));
+  }
+
+  .amount-total {
+    margin-bottom: 10px;
+  }
+}
