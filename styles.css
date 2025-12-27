@@ -46,22 +46,21 @@ body {
 .calculator {
   display: flex;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   height: 420px;
   padding: 40px;
   gap: 60px;
   margin: 0 20px;
   background-color: var(--White);
   border-radius: 15px;
-
 }
 
 .left-side {
-  flex: 0 1 55%;
+  flex: 0 1 51%;
 }
 
 .right-side {
-  flex: 0 1 45%;
+  flex: 0 1 49%;
   background-color: var(--Green900);
   border-radius: 15px;
 }
@@ -74,11 +73,39 @@ body {
   justify-content: space-between;
 }
 
+/* ---bill--- */
+
+.bill__display__icon {
+  position: absolute;
+  left: 10px;
+}
+
+.bill__input,
+.num-of-people__input {
+  width: 100%;
+  height: 100%;
+  text-align: end;
+  font-family: "Space mono";
+  padding: 5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--Green900);
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--Grey50);
+}
+
 .bill__text,
 .select-tip__text,
 .num-of-people__text {
   color: var(--Grey500);
   font-weight: 700;
+}
+
+.bill__text,
+.num-of-people__text {
+  margin-bottom: 10px;
 }
 
 .select-tip__text {
@@ -104,20 +131,52 @@ body {
   padding: 6px 0;
   font-size: 1.3rem;
   font-weight: 700;
+  font-family: "Space mono";
 }
 
 .custom__input,
 .custom__btn {
   width: 100%;
   height: 100%;
-  font-size: 1.6rem;
-  font-family: inherit;
   color: var(--Grey400);
   font-weight: 700;
+  font-family: "Space mono";
 }
 
 .custom__btn {
+  font-size: 1.6rem;
   border: none;
+}
+
+.custom__input {
+  padding-right: 5px;
+  text-align: right;
+  background-color: var(--Grey50);
+  border: none;
+  color: var(--Green900);
+}
+
+.custom__input:focus {
+  outline: 2px solid var(--Green400);
+}
+
+/* ---num of people--- */
+
+.num-of-people {
+  position: relative;
+}
+
+.num-of-people__icon {
+  position: absolute;
+  left: 10px;
+}
+
+.people__error {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  font-size: 0.8rem;
+  color: red;
 }
 
 /* -------------------RIGHT SIDE ------------------- */
@@ -155,7 +214,7 @@ body {
 
 .reset-btn {
   margin: auto auto 0 auto;
-  padding: 15px 0;
+  padding: 12px 0;
   border: none;
   border-radius: 3px;
   width: 100%;
@@ -170,20 +229,39 @@ body {
 .hidden {
   display: none;
 }
+
+.reset {
+  cursor: pointer;
+}
+
+.reset-empty {
+  background-color: #0d686d;
+  color: rgba(85, 85, 85, 0.603);
+}
+
+.reset-filled {
+  background-color: var(--Green400);
+  color: var(--Green900);
+}
 .display {
+  position: relative;
   border: 2px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: var(--Grey50);
   border: none;
+  border-radius: 50px;
+}
+
+.bill__input::placeholder,
+.num-of-people__input::placeholder {
+  font-family: "Space mono";
+  font-size: 1.2rem;
 }
 
 /* ----------------MEDIA QUERIES----------------- */
 
 @media (max-width: 850px) {
-
   body {
     align-items: center;
     gap: 7px;
@@ -209,5 +287,17 @@ body {
 
   .amount-total {
     margin-bottom: 10px;
+  }
+
+  .amount__heading,
+  .total__heading {
+    color: var(--White);
+    font-size: 0.8rem;
+  }
+  .amount__num,
+  .total__num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--Green400);
   }
 }
